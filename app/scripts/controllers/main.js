@@ -7,6 +7,7 @@ angular.module('angularUiTestingApp')
       'AngularJS',
       'Karma'
     ];
-
     console.log('main controller was called')
+
+
   });
