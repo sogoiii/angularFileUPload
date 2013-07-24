@@ -36,16 +36,11 @@ exports.register = function(req, res){
 
 
 exports.fileUpload = function(req, res){
-
-
 	console.log(req.files)
 	// res.json({completed: true});
-
-
     var opts = {
         content_type: req.files.myFile.type
       };
-
 	gridfs.putFile(req.files.myFile.path,  req.files.myFile.name, opts, function(err,file){
 
 		// res.writeHead('200', {'Content-Type': 'image/png'});
@@ -53,13 +48,20 @@ exports.fileUpload = function(req, res){
      	res.json({recieved: true})
     
     });//end of gridfs putfile
-
-
 };//end of fileUpload
 
 
 
+exports.getFile = function(req, res){
 
+  console.log('Looking for file = ' + req.params.fileId)
+
+  gridfs.getnew( req.params.fileId , function(err,file) {
+    res.writeHead('200', {'Content-Type': 'image/jpeg'});
+    res.end(file,'binary');
+  });
+
+}
 
 
 
