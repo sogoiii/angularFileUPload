@@ -1,6 +1,6 @@
 
 var dbFun = require('../DBfunctions'); //access to the DB and other functions
-
+var gridfs = require('../gridfs')
 
 /*
  * GET home page.
@@ -20,10 +20,7 @@ exports.login = function(req, res){
 
 
 exports.register = function(req, res){
-
 	console.log(req.body)
-
-
 	dbFun.registerUser(req.body, function(err, result){
 		if(!err){
 			console.log('routes:: register :: will return data')
@@ -34,7 +31,46 @@ exports.register = function(req, res){
 			res.json({authorized: false, redirectTO: null , userId: null })
 		};//end of !err tree
 	});//endof registerUserDB call
-
-
 	// res.json({authorized: true, redirectTO: '/user/' + req.session.passport.user , userId: req.session.passport.user })
 };//end of register
+
+
+exports.fileUpload = function(req, res){
+
+
+	console.log(req.files)
+	// res.json({completed: true});
+
+
+    var opts = {
+        content_type: req.files.myFile.type
+      };
+
+	gridfs.putFile(req.files.myFile.path,  req.files.myFile.name, opts, function(err,file){
+
+		// res.writeHead('200', {'Content-Type': 'image/png'});
+     	// res.end(file,'binary');
+     	res.json({recieved: true})
+    
+    });//end of gridfs putfile
+
+
+};//end of fileUpload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

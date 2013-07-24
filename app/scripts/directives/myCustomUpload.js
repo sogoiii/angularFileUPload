@@ -38,7 +38,7 @@ angular.module('angularUiTestingApp')
 
         inputEL.fileupload({
             dataType: 'text',
-            paramName: 'myFile',
+            paramName: 'myFile', //this is the name of the file that the server will see. its originall the name attribute of the input
             add: function (e, data) {
                 scope.$apply(function(){
                    scope.files.push(data) 
