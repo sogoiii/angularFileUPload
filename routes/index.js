@@ -57,8 +57,14 @@ exports.getFile = function(req, res){
   console.log('Looking for file = ' + req.params.fileId)
 
   gridfs.getnew( req.params.fileId , function(err,file) {
-    res.writeHead('200', {'Content-Type': 'image/jpeg'});
-    res.end(file,'binary');
+  	if(!err){
+  		console.log('will server image now')
+  		res.writeHead('200', {'Content-Type': 'image/jpeg'});
+    	res.end(file,'binary');
+  	} else {
+  		console.log('will not server image')
+  		res.json({error: true})
+  	}
   });
 
 }

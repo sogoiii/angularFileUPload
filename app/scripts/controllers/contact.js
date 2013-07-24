@@ -8,4 +8,6 @@ angular.module('angularUiTestingApp')
       'Karma'
     ];
     console.log('contact controller called')
+
+
   }]);

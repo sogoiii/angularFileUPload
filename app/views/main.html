@@ -1,2 +1,16 @@
 
-<my-custom-upload></my-custom-upload>
+
+<div class="row">
+	<div class="span4">
+		<my-custom-upload></my-custom-upload>
+	</div>
+	<div class="span6">
+		</br>
+		<p>Enter the Id of the image you want to view</p>
+		<input type="text" placeholder="ObjectID" ng-model="imageId"> 
+		<img src="/getfile/{{imageId}}"> 
+	</div>
+</div>
+
+
+
