@@ -37,14 +37,11 @@ exports.register = function(req, res){
 
 exports.fileUpload = function(req, res){
 	console.log(req.files)
-	// res.json({completed: true});
     var opts = {
         content_type: req.files.myFile.type
       };
 	gridfs.putFile(req.files.myFile.path,  req.files.myFile.name, opts, function(err,file){
 
-		// res.writeHead('200', {'Content-Type': 'image/png'});
-     	// res.end(file,'binary');
      	res.json({recieved: true})
     
     });//end of gridfs putfile

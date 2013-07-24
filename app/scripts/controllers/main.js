@@ -10,4 +10,11 @@ angular.module('angularUiTestingApp')
     console.log('main controller was called')
 
 
+
+    $scope.getImage1 = function(id){
+    	$scope.imageId = id;
+    }
+
+
+
   });

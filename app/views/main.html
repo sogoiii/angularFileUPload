@@ -7,8 +7,14 @@
 	<div class="span6">
 		</br>
 		<p>Enter the Id of the image you want to view</p>
-		<input type="text" placeholder="ObjectID" ng-model="imageId"> 
-		<img src="/getfile/{{imageId}}"> 
+		<form class="form-inline" name="inputIdForm">
+			<input type="text" placeholder="ObjectID" ng-model="imageIdTEMP"> 
+			<span class="btn btn-primary" ng-click="getImage1(imageIdTEMP)">Get Image</span>
+		</form>
+
+		<span ng-show="hasError">{{errorMessage}}</span>
+
+		<img src="/getfile/{{imageId}}">
 	</div>
 </div>
 

@@ -142,7 +142,7 @@ app.get('/api/user/:userId', ensureAuthenticated,  RestirctAccess,  user.userInd
 
 
 app.post('/file-upload', routes.fileUpload);
-app.get('/getFile/:fileId', routes.getFile)
+app.get('/getFile/:fileId', routes.getFile);
 
 app.get("*", function(req, res) {// I could chnage this to the 404 page which can load other things as well
   console.log('no route found, sending index.html file manually')
